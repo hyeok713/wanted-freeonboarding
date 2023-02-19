@@ -20,6 +20,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.app3_compose.ui.SearchBar
 import com.example.app3_compose.ui.theme.FreeonboardingTheme
 
 class MainActivity : ComponentActivity() {
@@ -28,12 +29,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             FreeonboardingTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    Greeting("Android")
-                }
+                SignInScreen()
             }
         }
     }
@@ -61,21 +57,23 @@ fun SignInScreen() {
             Text(text = "twg.official")
             Row(modifier = Modifier.fillMaxWidth()) {
                 Text(modifier = Modifier.weight(8f),text = "twg.officialtwg.officialtwg.officialtwg.officialtwg.officialtwg.officialtwg.officialtwg.officialtwg.officialtwg.officialtwg.official")
-                Spacer(modifier = Modifier.width(12.dp).weight(1f))
+                Spacer(modifier = Modifier
+                    .width(12.dp)
+                    .weight(1f))
                 Image(
                     modifier = Modifier
                         .size(12.dp, 12.dp)
                         .align(CenterVertically)
-                        .weight(1f).then(
+                        .weight(1f)
+                        .then(
                             /** then: 기존 설정된 Modifier 에 추가로 설정이 필요한 경우 **/
                             Modifier.size(12.dp)
                         ),
                     painter = painterResource(id = R.drawable.ic_launcher_background),
-                    contentDescription = " des"
-                )
+                    contentDescription = " des")
             }
             Spacer(modifier = Modifier.height(12.dp))
-
+            SearchBar()
         }
     }
 }
